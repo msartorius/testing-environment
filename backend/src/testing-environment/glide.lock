@@ -1,0 +1,92 @@
+hash: be96e9ab126380e60c3bfce8fb16206980453da766a8bf260e3196b463075a1b
+updated: 2017-02-06T12:00:57.212189263+01:00
+imports:
+- name: github.com/dgrijalva/jwt-go
+  version: 2268707a8f0843315e2004ee4f1d021dc08baedf
+- name: github.com/fsnotify/fsnotify
+  version: 629574ca2a5df945712d3079857300b5e4da0236
+- name: github.com/hashicorp/hcl
+  version: 372e8ddaa16fd67e371e9323807d056b799360af
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/scanner
+  - hcl/strconv
+  - hcl/token
+  - json/parser
+  - json/scanner
+  - json/token
+- name: github.com/julienschmidt/httprouter
+  version: 8a45e95fc75cb77048068a62daed98cc22fdac7c
+- name: github.com/labstack/echo
+  version: 8d504c1b699c757b267255c53b3e5219f9974abc
+  subpackages:
+  - middleware
+- name: github.com/labstack/gommon
+  version: 2d272df536d051e737aea353b86c979d6e88bce0
+  subpackages:
+  - bytes
+  - color
+  - log
+  - random
+- name: github.com/magiconair/properties
+  version: b3b15ef068fd0b17ddf408a23669f20811d194d2
+- name: github.com/mattn/go-colorable
+  version: d228849504861217f796da67fae4f6e347643f15
+- name: github.com/mattn/go-isatty
+  version: 30a891c33c7cde7b02a981314b4228ec99380cca
+- name: github.com/mitchellh/mapstructure
+  version: db1efb556f84b25a0a13a04aad883943538ad2e0
+- name: github.com/pelletier/go-buffruneio
+  version: df1e16fde7fc330a0ca68167c23bf7ed6ac31d6d
+- name: github.com/pelletier/go-toml
+  version: d1fa2118c12c44e4f5004da216d1efad10cb4924
+- name: github.com/satori/go.uuid
+  version: 879c5887cd475cd7864858769793b2ceb0d44feb
+- name: github.com/spf13/afero
+  version: 72b31426848c6ef12a7a8e216708cb0d1530f074
+  subpackages:
+  - mem
+- name: github.com/spf13/cast
+  version: d1139bab1c07d5ad390a65e7305876b3c1a8370b
+- name: github.com/spf13/jwalterweatherman
+  version: fa7ca7e836cf3a8bb4ebf799f472c12d7e903d66
+- name: github.com/spf13/pflag
+  version: 9ff6c6923cfffbcd502984b8e0c80539a94968b7
+- name: github.com/spf13/viper
+  version: 5ed0fc31f7f453625df314d8e66b9791e8d13003
+- name: github.com/tylerb/graceful
+  version: 4654dfbb6ad53cb5e27f37d99b02e16c1872fbbb
+- name: github.com/valyala/bytebufferpool
+  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
+- name: github.com/valyala/fasttemplate
+  version: d090d65668a286d9a180d43a19dfdc5dcad8fe88
+- name: golang.org/x/crypto
+  version: 77014cf7f9bde4925afeed52b7bf676d5f5b4285
+  subpackages:
+  - acme
+  - acme/autocert
+- name: golang.org/x/net
+  version: 236b8f043b920452504e263bc21d354427127473
+  subpackages:
+  - context
+  - context/ctxhttp
+- name: golang.org/x/sys
+  version: 7a6e5648d140666db5d920909e082ca00a87ba2c
+  subpackages:
+  - unix
+- name: golang.org/x/text
+  version: 506f9d5c962f284575e88337e7d9296d27e729d3
+  subpackages:
+  - transform
+  - unicode/norm
+- name: gopkg.in/mgo.v2
+  version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
+  subpackages:
+  - bson
+  - internal/json
+  - internal/sasl
+  - internal/scram
+- name: gopkg.in/yaml.v2
+  version: 4c78c975fe7c825c6d1466c42be594d1d6f3aba6
+testImports: []

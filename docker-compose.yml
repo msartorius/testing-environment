@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  database:
+     build:
+        dockerfile: dockerfileMongoDB
+        context: .
+     ports:
+        - "27017:27017"
+  web:
+     depends_on:
+        - database
+     build:
+        dockerfile: dockerfileApplicationProd
+        context: .
+     ports:
+         - "8080:8080"

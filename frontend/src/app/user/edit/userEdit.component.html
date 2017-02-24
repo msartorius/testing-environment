@@ -1,0 +1,23 @@
+<div class="container">
+
+  <form #f="ngForm" name="ngForm" novalidate>
+    <fieldset>
+      <div class="form-group" [ngClass]="{'has-danger': !validField(f, 'firstname')}">
+        <label for="first-name" class="control-label">Vorname</label>
+        <input id="first-name" name="firstname" class="form-control" type="text" [(ngModel)]="user.firstname" required>
+      </div>
+      <div class="form-group" [ngClass]="{'has-danger': !validField(f, 'familyname')}">
+        <label for="family-name" class="control-label">Name</label>
+        <input id="family-name" name="familyname" class="form-control" type="text" [(ngModel)]="user.familyname" required>
+      </div>
+      <div class="form-group" [ngClass]="{'has-danger': !validField(f, 'email')}">
+        <label for="email" class="control-label">Email</label>
+        <input id="email" name="email" class="form-control" type="email" [(ngModel)]="user.email" required>
+      </div>
+
+      <button id="submit-button" type="submit" class="btn btn-primary" [disabled]="!f.valid" (click)="submitUser()">Submit</button>
+      <button id="delete-btn" type="submit" class="btn btn-danger" *ngIf="user.id" (click)="deleteUser(user.id)">Delete</button>
+    </fieldset>
+  </form>
+
+</div>

@@ -1,0 +1,7 @@
+server:
+  port: ":8080"
+  url: "localhost"
+  static-root: "../../../frontend/dist"
+db:
+  name: "testing-environment"
+  url: "localhost"

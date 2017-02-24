@@ -1,0 +1,56 @@
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/scss/font-awesome";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css";
+
+html {
+  height: 100%;
+}
+
+body {
+  padding-top: 54px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.glyphicon {
+  @extend .fa;
+
+  &.glyphicon-chevron-left {
+    @extend .fa-chevron-left;
+  }
+
+  &.glyphicon-chevron-right {
+    @extend .fa-chevron-right;
+  }
+
+  &.glyphicon-chevron-up {
+    @extend .fa-chevron-up;
+  }
+
+  &.glyphicon-chevron-down {
+    @extend .fa-chevron-down;
+  }
+}
+
+datepicker {
+  datepicker-inner {
+    div.bg-faded {
+      background-color: transparent;
+      border: none;
+
+      monthpicker {
+        table {
+          border-radius: 0.25rem;
+          background-color: #F6F5F6;
+        }
+
+        &:focus, &:active {
+          outline: none;
+        }
+      }
+    }
+  }
+}

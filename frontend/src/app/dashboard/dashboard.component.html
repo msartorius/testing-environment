@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div style="display: block;">
+        <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+      </div>
+    </div>
+    <div id="datepicker-container" class="col-md-6">
+      <datepicker id="datepicker" [(ngModel)]="dt" (ngModelChange)="changeDate()" [minDate]="minDate" [datepickerMode]="'month'" [minMode]="'month'"></datepicker>
+    </div>
+  </div>
+
+</div>

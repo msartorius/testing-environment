@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  database:
+     build:
+        dockerfile: dockerfileMongoDB
+        context: .
+     ports:
+        - "27017:27017"
+  server:
+     depends_on:
+        - database
+     build:
+        dockerfile: dockerfileApplicationProd
+        context: .
+     ports:
+         - "8080:8080"
+  frontend_test:
+     depends_on:
+        - server
+     build:
+        dockerfile: dockerfileFrontendTest
+        context: .
+     volumes:
+        - ./reports/:/frontend/test_reports/
+     ports:
+        - "4200:4200"
