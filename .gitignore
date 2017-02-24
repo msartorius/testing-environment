@@ -3,6 +3,7 @@
 *.dll
 *.so
 *.dylib
+backend/bin/*
 
 # Test binary, build with `go test -c`
 *.test
@@ -14,8 +15,10 @@
 vendor/
 
 /.idea/
+reports
 
 # FRONTEND / ANGULAR
+frontend/test_reports/*
 node_modules/
 dist/
 yarn.lock
