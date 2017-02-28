@@ -16,7 +16,7 @@
       </div>
 
       <button id="submit-button" type="submit" class="btn btn-primary" [disabled]="!f.valid" (click)="submitUser()">Submit</button>
-      <button id="delete-btn" type="submit" class="btn btn-danger" *ngIf="user.id" (click)="deleteUser(user.id)">Delete</button>
+      <button *ngIf="user.id" id="delete-btn" type="submit" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
     </fieldset>
   </form>
 

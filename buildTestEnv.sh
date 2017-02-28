@@ -2,9 +2,10 @@
 
 TOP_PATH=$PWD
 BACKEND_PATH=backend/src/testing-environment/
+FRONTEND_PATH=frontend/
 
+rm -rf reports
 mkdir reports
-rm -rfv -y reports/*
 cd ${BACKEND_PATH}
 rm -rf ./../../bin
 mkdir -p ./../../bin/config
@@ -17,7 +18,5 @@ then
     exit
 fi
 cd ${TOP_PATH}
+chmod +x ./${FRONTEND_PATH}/e2e/runE2E.sh
 docker-compose -f docker-compose-test.yml up
-# docker build . -f dockerfileMongoDB -t database --no-cache=true
-# docker build . -f dockerfileApplicationProd -t server --no-cache=true
-# docker build . -f dockerfileFrontendTest -t frontend_test --no-cache=true

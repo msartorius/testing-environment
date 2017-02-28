@@ -1,18 +1,31 @@
 import {browser} from "protractor";
 import {HeaderPO} from "../header/header.po";
+import {DatabaseUtils} from "../util/database.utils";
+
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+
+var expect = chai.expect;
 
 describe("dashboard page", function () {
 
-  beforeAll(() => {
+  before(() => {
     browser.get("dashboard");
   });
 
-  it("should change date", function () {
+  it("should go to dashboard", function () {
+
+    let dbutils = new DatabaseUtils();
+    dbutils.connect();
+    dbutils.removeAllUsers();
+    dbutils.createAndSaveUser();
+    dbutils.disconnect();
 
     let headerPage = new HeaderPO();
 
-    expect(browser.getCurrentUrl()).toMatch(/\/dashboard$/);
-    expect(headerPage.getHeaderText()).toEqual('Testing Environment');
+    expect(browser.getCurrentUrl()).to.eventually.match(/\/dashboard$/);
+    expect(headerPage.getHeaderText()).to.eventually.equal('Testing Environment');
   });
 
 });

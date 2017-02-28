@@ -19,7 +19,8 @@ export class UserEditComponent implements OnInit{
     id: undefined,
     firstname: "",
     familyname: "",
-    email: ""
+    email: "",
+    timestamp: ""
   };
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute,
@@ -37,7 +38,11 @@ export class UserEditComponent implements OnInit{
     this.httpService.get<User>(this.getUserByIdUrl+id)
       .toPromise()
       .then(
-        (data: any) => this.user = data,
+        (data: any) => {
+          console.log("DATA: ", data);
+          this.user = data;
+          console.log("USER: ", this.user.timestamp);
+        },
         (err: any) => this.showError(err.toString())
       );
   }

@@ -23,5 +23,6 @@ services:
         context: .
      volumes:
         - ./reports/:/frontend/test_reports/
+        - ./frontend/e2e/:/frontend/e2e/
      ports:
         - "4200:4200"

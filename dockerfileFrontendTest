@@ -1,18 +1,6 @@
-#FROM mhart/alpine-node:6.9.5
-#
-#COPY ./frontend/src/app/*/*.e2e.ts ./frontend/e2e/runE2E.sh /frontend/e2e/
-#COPY ./frontend/protractor.conf.js ./frontend/package.json /frontend/
-#RUN ls -la && ls -la /frontend && ls -la /frontend/e2e
-#RUN cd /frontend/e2e && chmod a+x runE2E.sh
-#RUN npm install -g webdriver-manager protractor
-#RUN cd /frontend && npm install protractor-jasmine2-html-reporter
-
 FROM library/ubuntu:16.04
 
-COPY ./frontend/e2e /frontend/e2e
-COPY ./frontend/protractor.conf.js ./frontend/package.json /frontend/
-RUN cd /frontend/e2e && chmod a+x runE2E.sh
-RUN cd /frontend && mkdir -p test_reports/screenshots
+ENV npm_version=6.9.5
 
 RUN apt-get update && \
     apt-get install -y \
@@ -23,17 +11,28 @@ RUN apt-get update && \
     xvfb \
     build-essential libssl-dev \
     curl
+
+RUN mkdir -p ./frontend/e2e
+COPY ./frontend/protractor.conf.js ./frontend/package.json /frontend/
+RUN cd /frontend && mkdir -p test_reports/screenshots
+
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash && \
     export NVM_DIR="/root/.nvm" && \
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
-    nvm install 6.9.5 && \
+    nvm install ${npm_version} && \
     npm update npm -g && \
-    npm install -g node-gyp webdriver-manager protractor && \
+    npm install -g node-gyp webdriver-manager protractor mocha && \
     cd frontend/ && \
-    npm install protractor jasmine @types/jasmine protractor-jasmine2-html-reporter typescript ts-node
-
-ENV NVM_DIR /root/.nvm
-ENV NVM_BIN /root/.nvm/versions/node/v6.9.5/bin
-ENV PATH $NVM_BIN:$PATH
+    npm install typescript \
+        ts-node \
+        protractor \
+        mocha \
+        chai \
+        chai-as-promised \
+        mochawesome-screenshots \
+        mongoose \
+        mongo-uuid \
+        @types/mocha \
+        @types/chai-as-promised
 
 ENTRYPOINT ["/frontend/e2e/runE2E.sh"]

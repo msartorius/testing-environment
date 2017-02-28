@@ -3,4 +3,5 @@ export interface User {
   firstname: string;
   familyname: string;
   email: string;
+  timestamp: string;
 }

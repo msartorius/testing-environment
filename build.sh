@@ -18,5 +18,4 @@ fi
 cd ${TOP_PATH}/${FRONTEND_PATH}
 ng build
 cd ${TOP_PATH}
-docker build . -f dockerfileMongoDB -t mongodb --no-cache=true
-docker build . -f dockerfileApplicationProd -t application --no-cache=true
+docker-compose -f docker-compose.yml up
