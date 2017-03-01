@@ -3,7 +3,7 @@
 TOP_PATH=$PWD
 BACKEND_PATH=backend/src/testing-environment/
 FRONTEND_PATH=frontend/
-
+# script
 rm -rf reports
 mkdir reports
 cd ${BACKEND_PATH}
