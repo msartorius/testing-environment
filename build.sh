@@ -10,6 +10,7 @@ mkdir -p ./../../bin/config
 cp -a ./config/config-prod.yml ./../../bin/config
 cp -a ./config/run.sh ./../../bin/
 chmod +x ./../../bin/run.sh
+glide install
 go install
 if [ $? != 0 ]
 then
