@@ -18,7 +18,7 @@ export class DatabaseUtils {
                     firstname: string = "Test",
                     familyname: string = "User",
                     email: string = "test_user@mail.com",
-                    timestamp: string = "2017-02-10T12:00:00.000Z") {
+                    timestamp: string = "2017-03-05T12:00:00.000Z") {
      UserSchema.createNewUser(id, firstname, familyname, email, timestamp);
   }
 

@@ -16,14 +16,19 @@ export class UserSchema {
       firstname: firstname,
       familyname: familyname,
       email: email,
-      timestamp: Date.parse(timestamp)
+      timestamp: new Date(timestamp)
     }).save();
   }
 
   static removeAllUsers() {
-    userModel.findOne({"id": "dcc090ea-a65b-4ea4-9d91-22310bdad8af"}).exec(function(err, user) {
-      console.log("HELLO ", user);
+    let uid = uuid.parse('dcc090ea-a65b-4ea4-9d91-22310bdad8af');
+    userModel.find({}, function (err, users) {
+      if(err) throw err;
+      for (let user of users) {
+        console.log("USER: ", user);
+      }
     });
+
   }
 
 }

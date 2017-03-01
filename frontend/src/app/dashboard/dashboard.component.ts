@@ -66,11 +66,9 @@ export class DashboardComponent implements OnInit {
 
   changeDate() {
     this.lineChartLabels = _.range(1, moment(this.dt).daysInMonth() + 1);
-    console.log("LCD: ", this.lineChartData);
     let m = moment(this.dt).utcOffset(0, true);
     this.dateRange.startDate = m.clone().startOf("month").toISOString();
     this.dateRange.endDate = m.clone().endOf("month").toISOString();
-    console.log("RANGE: ", this.dateRange);
     this.postRequest();
   }
 
@@ -91,7 +89,7 @@ export class DashboardComponent implements OnInit {
     let month = this.getMonthArray(moment(this.dt));
     for(var day in map) {
       if (map.hasOwnProperty(day)) {
-        month[day] = map[day];
+        month[Number(day) - 1] = map[day];
       }
     }
     this.lineChartData = [...this.lineChartData];

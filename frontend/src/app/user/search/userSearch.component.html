@@ -6,6 +6,7 @@
       <th>Vorame</th>
       <th>Name</th>
       <th>Email</th>
+      <th>Angelegt am</th>
     </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
       <td>{{user.firstname}}</td>
       <td>{{user.familyname}}</td>
       <td>{{user.email}}</td>
+      <td>{{user.timestamp | date:'medium'}}</td>
     </tr>
     <tr>
     </tbody>

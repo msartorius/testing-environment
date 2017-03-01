@@ -36,6 +36,7 @@ func main() {
 	router.GET("/api/users", routes.UserGetAllHandler)
 	router.GET("/api/users/:id", routes.UserGetByIdHandler)
 
+	// Error Handler
 	router.HTTPErrorHandler = func(e error, c echo.Context) {
 		he, castOk := e.(*echo.HTTPError)
 		if castOk && he.Code == http.StatusNotFound {

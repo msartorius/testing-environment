@@ -52,7 +52,7 @@ describe("user edit page", function () {
 
     testUserTd.click();
 
-    expect(browser.getCurrentUrl()).to.eventually.match(/\/user\/edit\/[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}/);
+    expect(browser.getCurrentUrl()).to.eventually.match(/\/user\/edit\/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/);
 
     let newEmail = "abc@def.com";
     let editPO = new UserEditPage();

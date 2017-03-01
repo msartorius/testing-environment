@@ -8,7 +8,7 @@ import (
 
 //Fieldnames
 const Id string = "id"
-const FirstName string = "firstName"
+const FirstName string = "firstname"
 const FamilyName string = "familyname"
 const Email string = "email"
 const Timestamp string = "timestamp"

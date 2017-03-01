@@ -15,16 +15,13 @@ import (
 )
 
 func UserPostHandler(c echo.Context) error {
-	u := new(model.User)
-
-	if err := c.Bind(u); err != nil {
+	u, err := bindFormDataToUser(c)
+	if err != nil {
 		log.Warn(err)
 		return c.JSON(http.StatusBadRequest, err)
 	}
 	session := database.DBUserColl()
-	u.Id = uuid.NewV4()
-	u.Timestamp = time.Now()
-	err := session.Insert(u)
+	err = session.Insert(u)
 	if err != nil {
 		log.Warn(err)
 		return c.JSON(http.StatusBadRequest, err)
@@ -93,17 +90,26 @@ func UserGetByIdHandler(c echo.Context) error {
 
 func bindFormDataToUser(c echo.Context) (u *model.User, err error) {
 	u = new(model.User)
-
-	u.Id, err = uuid.FromString(c.FormValue(model.Id))
-	if err != nil {
-		return u, err
+	id := c.FormValue(model.Id)
+	if len(id) > 0 {
+		u.Id, err = uuid.FromString(id)
+		if err != nil {
+			return u, err
+		}
+	} else {
+		u.Id = uuid.NewV4()
+	}
+	timestamp := c.FormValue(model.Timestamp)
+	if len(timestamp) > 0 {
+		u.Timestamp, err = time.Parse(time.RFC3339, strings.Replace(timestamp, " ", "+", -1))
+		if err != nil {
+			return u, err
+		}
+	} else {
+		u.Timestamp = time.Now()
 	}
 	u.FirstName = c.FormValue(model.FirstName)
 	u.FamilyName = c.FormValue(model.FamilyName)
 	u.Email = c.FormValue(model.Email)
-	u.Timestamp, err = time.Parse(time.RFC3339, strings.Replace(c.FormValue(model.Timestamp), " ", "+", -1))
-	if err != nil {
-		return u, err
-	}
 	return u, err
 }
