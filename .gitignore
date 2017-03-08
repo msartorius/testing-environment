@@ -4,6 +4,7 @@
 *.so
 *.dylib
 backend/bin/*
+backend/pkg/*
 
 # Test binary, build with `go test -c`
 *.test
