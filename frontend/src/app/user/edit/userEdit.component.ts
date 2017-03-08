@@ -38,11 +38,7 @@ export class UserEditComponent implements OnInit{
     this.httpService.get<User>(this.getUserByIdUrl+id)
       .toPromise()
       .then(
-        (data: any) => {
-          console.log("DATA: ", data);
-          this.user = data;
-          console.log("USER: ", this.user.timestamp);
-        },
+        (data: any) => this.user = data,
         (err: any) => this.showError(err.toString())
       );
   }
