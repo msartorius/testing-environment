@@ -24,4 +24,4 @@ cd ${FRONTEND_PATH}
 npm install
 ng build
 cd ${TOP_PATH}
-sudo docker-compose -f docker-compose-test.yml up
+sudo docker-compose -f docker-compose-test.yml up --abort-on-container-exit
