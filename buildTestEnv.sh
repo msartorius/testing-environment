@@ -20,4 +20,7 @@ then
 fi
 cd ${TOP_PATH}
 chmod +x ./${FRONTEND_PATH}/e2e/runE2E.sh
+cd ${FRONTEND_PATH}
+ng build
+cd ${TOP_PATH}
 sudo docker-compose -f docker-compose-test.yml up
