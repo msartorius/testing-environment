@@ -20,4 +20,4 @@ then
 fi
 cd ${TOP_PATH}
 chmod +x ./${FRONTEND_PATH}/e2e/runE2E.sh
-docker-compose -f docker-compose-test.yml up
+sudo docker-compose -f docker-compose-test.yml up
