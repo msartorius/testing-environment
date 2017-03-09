@@ -19,7 +19,7 @@ vendor/
 reports
 
 # FRONTEND / ANGULAR
-frontend/test_reports/*
+frontend/test_reports
 node_modules/
 dist/
 yarn.lock
