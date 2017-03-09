@@ -1,20 +1,24 @@
 import {UserSchema} from "./user.schema";
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 var uuid = require('mongo-uuid');
 const db = mongoose.connection;
 
 export class DatabaseUtils {
 
-  connect(uri: string = "mongodb://database/testing_environment") {
-    mongoose.connect(uri);
-    db.on('error', console.error.bind(console, 'connection error:'));
+  static connect(uri: string = "mongodb://database/testing-environment") {
+    mongoose.connect(uri)
+      .then(() => console.log("Fixture: Connected to DB"))
+      .catch((err) => console.log("Fixture: Error while connecting to DB", err));
   }
 
-  disconnect() {
-    mongoose.disconnect();
+  static disconnect() {
+    mongoose.disconnect()
+      .then(() => console.log("Fixture: Disconnected from DB"))
+      .catch((err) => console.log("Fixture: Error while disconnecting from DB", err));
   }
 
-  createAndSaveUser(id: string = "dcc090ea-a65b-4ea4-9d91-22310bdad8af",
+  static createAndSaveUser(id: string = "dcc090ea-a65b-4ea4-9d91-22310bdad8af",
                     firstname: string = "Test",
                     familyname: string = "User",
                     email: string = "test_user@mail.com",
@@ -22,7 +26,7 @@ export class DatabaseUtils {
      UserSchema.createNewUser(id, firstname, familyname, email, timestamp);
   }
 
-  removeAllUsers() {
+  static removeAllUsers() {
     UserSchema.removeAllUsers();
   }
 

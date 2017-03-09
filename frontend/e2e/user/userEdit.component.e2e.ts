@@ -1,6 +1,7 @@
 import {browser, ElementFinder} from "protractor";
 import {UserEditPage} from "./userEdit.po";
 import {UserSearchPage} from "./userSearch.po";
+import {DatabaseUtils} from "../util/database.utils";
 
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
@@ -12,6 +13,9 @@ describe("user edit page", function () {
 
   before(() => {
     browser.waitForAngular();
+    DatabaseUtils.connect();
+    DatabaseUtils.removeAllUsers();
+    DatabaseUtils.disconnect();
   });
 
   it("should create and find new user", function () {

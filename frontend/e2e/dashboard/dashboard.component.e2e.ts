@@ -12,16 +12,13 @@ describe("dashboard page", function () {
 
   before(() => {
     browser.get("dashboard");
+    DatabaseUtils.connect();
+    DatabaseUtils.removeAllUsers();
+    DatabaseUtils.createAndSaveUser();
+    DatabaseUtils.disconnect();
   });
 
   it("should go to dashboard", function () {
-
-    let dbutils = new DatabaseUtils();
-    dbutils.connect();
-    dbutils.removeAllUsers();
-    dbutils.createAndSaveUser();
-    dbutils.disconnect();
-
     let headerPage = new HeaderPO();
 
     expect(browser.getCurrentUrl()).to.eventually.match(/\/dashboard$/);
