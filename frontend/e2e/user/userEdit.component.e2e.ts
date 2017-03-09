@@ -18,7 +18,7 @@ describe("user edit page", function () {
     DatabaseUtils.disconnect();
   });
 
-  it("should create and find new user", function () {
+  it("should create and find new user @user", function () {
 
     browser.get("user/new");
 
@@ -43,7 +43,7 @@ describe("user edit page", function () {
 
   });
 
-  it("should edit user", function () {
+  it("should edit user @user", function () {
 
     browser.get("user");
 

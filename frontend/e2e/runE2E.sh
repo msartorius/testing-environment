@@ -6,7 +6,7 @@ nvm use 6.9.5
 webdriver-manager update
 Xvfb -ac :99 -screen 0 1280x1024x16 &
 export DISPLAY=:99
-protractor protractor.conf.js --baseUrl=http://server:8080
+protractor protractor.conf.js --baseUrl=http://server:8080 --tags=dashboard,user
 chmod -R 777 test_reports/
 
 

@@ -1,5 +1,7 @@
 var defaultTimeout = 60000;
 
+let tags = require('./e2e/protractor-mocha-tags')();
+
 module.exports = {
   config: {
     capabilities: {
@@ -17,6 +19,7 @@ module.exports = {
     defaultTimeoutInterval: defaultTimeout,
     useAllAngular2AppRoots: true,
     mochaOpts: {
+      grep: tags,
       reporter: 'mochawesome-screenshots',
       reporterOptions: {
         reportDir: 'test_reports',

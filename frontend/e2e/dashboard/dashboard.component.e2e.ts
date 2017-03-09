@@ -18,7 +18,7 @@ describe("dashboard page", function () {
     DatabaseUtils.disconnect();
   });
 
-  it("should go to dashboard", function () {
+  it("should go to dashboard @dashboard", function () {
     let headerPage = new HeaderPO();
 
     expect(browser.getCurrentUrl()).to.eventually.match(/\/dashboard$/);
