@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input} from "@angular/core";
 import {User} from "../model/user.model";
 import {HttpService} from "../../shared/http.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -6,11 +6,11 @@ import {Observable} from "rxjs";
 import {ToastsManager} from "ng2-toastr";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './userEdit.component.html',
-  styleUrls: ['../user.component.scss']
+  selector: "app-user",
+  templateUrl: "./userEdit.component.html",
+  styleUrls: ["../user.component.scss"]
 })
-export class UserEditComponent implements OnInit{
+export class UserEditComponent implements OnInit {
 
   private getUserByIdUrl: string = "users/";
   private pUDUrl: string = "user";
@@ -28,14 +28,14 @@ export class UserEditComponent implements OnInit{
 
   ngOnInit(): void {
     this.activatedRoute.params
-      .map(params => params['id'])
+      .map(params => params["id"])
       .filter(id => !!id)
       .take(1)
       .subscribe((id) => this.getUser(id));
   }
 
   getUser(id: string) {
-    this.httpService.get<User>(this.getUserByIdUrl+id)
+    this.httpService.get<User>(this.getUserByIdUrl + id)
       .toPromise()
       .then(
         (data: any) => this.user = data,
@@ -45,16 +45,16 @@ export class UserEditComponent implements OnInit{
 
   submitUser() {
     let postOrUpdate: Observable<User>;
-    if(!!this.user.id) {
+    if (!!this.user.id) {
       postOrUpdate = this.httpService.put<User>(this.pUDUrl, this.user);
     } else {
-      postOrUpdate = this.httpService.post<User>(this.pUDUrl, this.user)
+      postOrUpdate = this.httpService.post<User>(this.pUDUrl, this.user);
     }
     postOrUpdate.toPromise()
       .then(
         () => {
           this.showSuccess("Nutzer erfolgreich angelegt");
-          this.router.navigate(["/user"])
+          this.router.navigate(["/user"]);
         },
         (err: any) => this.showError(err.toString())
       );
@@ -73,14 +73,16 @@ export class UserEditComponent implements OnInit{
   }
 
   validField(form: any, name: string) {
-    if(name === 'email' && form.form.controls[name]) {
+    if (name === "email" && form.form.controls[name]) {
       return this.validateEmail(form.form.controls[name].value) ? form.form.controls[name].valid : false;
     }
     return form.form.controls[name] ? form.form.controls[name].valid : false;
   }
 
   validateEmail(email: string) {
-    var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    // tslint:disable
+    const regex = /^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    // tslint:enable
     return regex.test(email);
   }
 

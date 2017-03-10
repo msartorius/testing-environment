@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {HttpService} from "../../shared/http.service";
 import {User} from "../model/user.model";
 import {Router} from "@angular/router";
 import {ToastsManager} from "ng2-toastr";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './userSearch.component.html',
-  styleUrls: ['../user.component.scss']
+  selector: "app-user",
+  templateUrl: "./userSearch.component.html",
+  styleUrls: ["../user.component.scss"]
 })
 export class UserSearchComponent implements OnInit {
 

@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 
 @Component({
-  selector: "user",
+  selector: "app-user",
   template: `<section class="page">
 
         <h3>User Dashboard</h3>

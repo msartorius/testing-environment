@@ -5,7 +5,7 @@ import {NgModule} from "@angular/core";
 import {DashboardComponent} from "./dashboard.component";
 import {DASHBOARD_ROUTE} from "./dashboard.route";
 import {ChartsModule} from "ng2-charts/ng2-charts";
-import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+import { DatepickerModule } from "ng2-bootstrap/datepicker";
 
 @NgModule({
   imports: [

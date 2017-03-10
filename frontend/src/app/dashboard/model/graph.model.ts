@@ -1,3 +1,3 @@
 export interface Graph {
-  x: number
+  x: number;
 }
