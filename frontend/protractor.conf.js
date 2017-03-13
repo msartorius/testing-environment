@@ -33,16 +33,22 @@ module.exports = {
     useAllAngular2AppRoots: true,
     mochaOpts: {
       grep: tags,
-      reporter: "mochawesome-screenshots",
+      reporter: "mocha-multi-reporters",
       reporterOptions: {
-        reportDir: "test_reports",
-        reportName: "testing-environment",
-        reportTitle: "testing-environment",
-        reportPageTitle: "testing-environment",
-        takePassedScreenshot: true,
-        clearOldScreenshots: true,
-        jsonReport: false,
-        multiReport: false
+        reporterEnabled: "mochawesome-screenshots, mocha-junit-reporter",
+        mochawesomeScreenshotsReporterOptions: {
+          reportDir: "test_reports",
+          reportName: "testing-environment",
+          reportTitle: "testing-environment",
+          reportPageTitle: "testing-environment",
+          takePassedScreenshot: true,
+          clearOldScreenshots: true,
+          jsonReport: false,
+          multiReport: false
+        },
+        mochaJunitReporterReporterOptions: {
+          mochaFile : "test_reports/junitReport.xml"
+        }
       },
       timeout: 600000
     },

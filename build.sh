@@ -17,6 +17,6 @@ then
     exit
 fi
 cd ${TOP_PATH}/${FRONTEND_PATH}
-ng build
+npm run build
 cd ${TOP_PATH}
 docker-compose -f docker-compose.yml up

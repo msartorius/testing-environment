@@ -199,7 +199,7 @@ module.exports = {
     ]
   },
   "plugins": [
-    new BundleAnalyzerPlugin(),
+
     new NoEmitOnErrorsPlugin(),
     new GlobCopyWebpackPlugin({
       "patterns": [
