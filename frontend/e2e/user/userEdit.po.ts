@@ -15,9 +15,9 @@ export class UserEditPage {
     this.submitBtn = element(by.id("submit-button"));
   }
 
-  createNewUser(firstName: string = "Test",
-                familyName: string = "User",
-                email: string = "test_user@mail.com") {
+  createNewUser(firstName = "Test",
+                familyName = "User",
+                email = "test_user@mail.com") {
     this.firstNameInput.sendKeys(firstName);
     this.familyNameInput.sendKeys(familyName);
     this.emailInput.sendKeys(email);

@@ -1,6 +1,9 @@
 FROM library/ubuntu:16.04
 
 ENV npm_version=6.9.5
+ARG tags
+
+CMD echo ${tags}
 
 RUN apt-get update && \
     apt-get install -y \
@@ -26,7 +29,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh
     npm install typescript \
         ts-node \
         protractor \
-        yargs\
+        yargs \
+        js-yaml \
         mocha \
         chai \
         chai-as-promised \

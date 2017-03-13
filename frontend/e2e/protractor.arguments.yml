@@ -1,0 +1,5 @@
+test:
+	tags: "user,dashboard"
+url:
+	base: "http://server:8080"
+

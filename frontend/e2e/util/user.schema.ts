@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
-var uuid = require('mongo-uuid');
-var userModel = mongoose.model('user', mongoose.Schema({
+const mongoose = require("mongoose");
+const uuid = require("mongo-uuid");
+let userModel = mongoose.model("user", mongoose.Schema({
   id: {},
   firstname: String,
   familyname: String,
   emaily: String,
-  timestamp: Date}, { versionKey: false }), 'user');
+  timestamp: Date}, { versionKey: false }), "user");
 
 export class UserSchema {
 

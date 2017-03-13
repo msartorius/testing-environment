@@ -3,11 +3,11 @@ import {UserEditPage} from "./userEdit.po";
 import {UserSearchPage} from "./userSearch.po";
 import {DatabaseUtils} from "../util/database.utils";
 
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 
-var expect = chai.expect;
+const expect = chai.expect;
 
 describe("user edit page", function () {
 
@@ -56,7 +56,9 @@ describe("user edit page", function () {
 
     testUserTd.click();
 
+    // tslint:disable
     expect(browser.getCurrentUrl()).to.eventually.match(/\/user\/edit\/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/);
+    // tslint:enable
 
     let newEmail = "abc@def.com";
     let editPO = new UserEditPage();

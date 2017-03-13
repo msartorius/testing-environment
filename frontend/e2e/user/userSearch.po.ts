@@ -8,7 +8,7 @@ export class UserSearchPage {
     this.userTableCells = element(by.id("user-search-table")).all(by.tagName("td"));
   }
 
-  findColumnByEmail(email: string = "test_user@mail.com"): ElementFinder {
+  findColumnByEmail(email = "test_user@mail.com"): ElementFinder {
     return this.userTableCells.filter((elem: ElementFinder) =>
       elem.getText().then((text: string) => text === email)).first();
   }
